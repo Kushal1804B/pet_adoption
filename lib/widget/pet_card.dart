@@ -17,11 +17,6 @@ class PetCard extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Stack(
       children: [
-        // ClipRRect(
-        //   borderRadius: BorderRadius.circular(20),
-        //   child: BackdropFilter(
-        //     filter: ImageFilter.blur(sigmaX: 25, sigmaY: 25),
-        //     child:
         Container(
           width: double.infinity,
           height: size.width / 2 - 40,
@@ -156,8 +151,6 @@ class PetCard extends StatelessWidget {
             ],
           ),
         ),
-        //   ),
-        // ),
         Container(
           width: size.width / 2 - 20,
           height: size.width / 2,
@@ -174,40 +167,6 @@ class PetCard extends StatelessWidget {
             ],
           ),
         ),
-        // SizedBox(
-        //   width: size.width / 2 + 20,
-        //   height: size.width / 2 + 50,
-        //   child: Stack(
-        //     children: [
-        //       // Image
-        //       Image.asset(pet.imageUrl),
-        //       // Positioned text
-        //       pet.adopted
-        //           ? Positioned(
-        //               top: size.width / 4 + 25,
-        //               left: size.width / 4 - 40,
-        //               child: Transform.rotate(
-        //                 alignment: Alignment.center,
-        //                 angle: -0.2, // Adjust the angle as needed
-        //                 child: Container(
-        //                   padding: EdgeInsets.all(8),
-        //                   color: Colors.black.withOpacity(
-        //                       0.4), // Adjust opacity and color as needed
-        //                   child: Text(
-        //                     'Already Adopted',
-        //                     style: TextStyle(
-        //                       color: Colors.white,
-        //                       fontSize: 16,
-        //                       fontWeight: FontWeight.bold,
-        //                     ),
-        //                   ),
-        //                 ),
-        //               ),
-        //             )
-        //           : Text(""),
-        //     ],
-        //   ),
-        // )
         SizedBox(
           width: size.width / 2 + 20,
           height: size.width / 2 + 50,

@@ -55,20 +55,6 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                         ),
                       ),
                     ),
-                    // Navigator.push(
-                    //   context,
-                    //   CupertinoPageRoute(
-                    //     builder: (context) => InteractiveViewer(
-                    //       child: Hero(
-                    //         tag: 'pet${widget.pet.breed}',
-                    //         child: PhotoView(
-                    //           imageProvider: AssetImage(widget.pet.imageUrl),
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // );
-
                     child: Container(
                       alignment: Alignment.center,
                       child: Hero(
@@ -93,11 +79,6 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                           },
                           icon: Icon(Icons.arrow_back_ios),
                         ),
-                        // IconButton(
-                        //   color: Theme.of(context).colorScheme.primaryContainer,
-                        //   onPressed: () {},
-                        //   icon: Icon(Icons.ios_share_outlined),
-                        // ),
                       ],
                     ),
                   ),
@@ -148,14 +129,36 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                                     ),
                                   ),
                                 ),
-                                Icon(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .primaryContainer,
-                                  widget.pet.gender.toLowerCase() == "male"
-                                      ? Icons.male_sharp
-                                      : Icons.female_rounded,
+                                Row(
+                                  children: [
+                                    Icon(
+                                      widget.pet.gender.toLowerCase() == "male"
+                                          ? Icons.male_sharp
+                                          : Icons.female_rounded,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primaryContainer,
+                                    ),
+                                    Text(
+                                      "${widget.pet.gender}",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 16,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primaryContainer,
+                                      ),
+                                    ),
+                                  ],
                                 ),
+                                // Icon(
+                                //   color: Theme.of(context)
+                                //       .colorScheme
+                                //       .primaryContainer,
+                                //   widget.pet.gender.toLowerCase() == "male"
+                                //       ? Icons.male_sharp
+                                //       : Icons.female_rounded,
+                                // ),
                               ],
                             ),
                             Row(
@@ -176,7 +179,7 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                                   "${widget.pet.age} years old",
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 12,
+                                    fontSize: 16,
                                     color: Theme.of(context)
                                         .colorScheme
                                         .primaryContainer,
@@ -223,7 +226,6 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                   ),
                 ),
               ),
-              // const Spacer(),
               Container(
                 width: double.infinity,
                 height: size.height * 0.15,
@@ -241,7 +243,7 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                         widget.pet.adopted = true;
 
                         widget.pet.adoptedTime =
-                            DateFormat('HH-mm-ss').format(DateTime.now());
+                            DateFormat('HH:mm:ss').format(DateTime.now());
                       });
                       _showConfettiPopUp(widget.pet.name);
                     }

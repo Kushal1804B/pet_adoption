@@ -85,6 +85,9 @@ class _home_pageState extends State<home_page> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: TextField(
+                          onTapOutside: (event) {
+                            FocusScope.of(context).unfocus();
+                          },
                           controller: _searchController,
                           onChanged: (value) {
                             filterPets(value);
@@ -114,23 +117,6 @@ class _home_pageState extends State<home_page> {
                           ),
                         ),
                       ),
-                      // Row(
-                      //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      //     children: [
-                      //       ...List.generate(
-                      //         petCategoryList.length,
-                      //         (index) => InkWell(
-                      //           onTap: () {
-                      //             setState(() => currentIndex = index);
-                      //           },
-                      //           child: PetCategoryButton(
-                      //             imageUrl: petCategoryList[index].imageUrl,
-                      //             isSelected: currentIndex == index,
-                      //             title: petCategoryList[index].title,
-                      //           ),
-                      //         ),
-                      //       ),
-                      //     ]),
                       ListView.builder(
                         shrinkWrap: true,
                         padding: EdgeInsets.zero,
@@ -194,19 +180,3 @@ class _home_pageState extends State<home_page> {
     });
   }
 }
-
-// List<Pet> getCurrentCategory(int index) {
-//   switch (index) {
-//     case 0:
-//       return cats;
-//     case 1:
-//       return dogs;
-//     case 2:
-//       return birds;
-//     case 3:
-//       return bunnies;
-//     default:
-//       return cats;
-    
-//   }
-// }
