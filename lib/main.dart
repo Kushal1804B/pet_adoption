@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pet_adoption/Theme/theme_provider.dart';
 import 'package:pet_adoption/pages/home_page.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,13 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      builder: (context, child) => MaterialApp(
+        theme: Provider.of<ThemeProvider>(context).themeData,
+        debugShowCheckedModeBanner: false,
+        home: home_page(),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
